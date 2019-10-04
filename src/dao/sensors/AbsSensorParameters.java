@@ -7,7 +7,7 @@ import maps.*;
  * 
  * @author Maisha Jauernig
  */
-abstract class AbsSensorParameters {
+public abstract class AbsSensorParameters {
 	IMJ_Map<String, String> _paramNameToVal;
 	
 	AbsSensorParameters (String line){

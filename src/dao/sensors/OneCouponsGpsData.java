@@ -6,7 +6,7 @@ import orderedcollection.*;
  * Contains all information associated with the given coupon ID found in the sensor_GPS.csv file as an IMJ_OC<GpsDataPoint>
  * @author Maisha Jauernig
  */
-class OneCouponsGpsData {
+public class OneCouponsGpsData {
     private final IMJ_OC<GpsDataPoint> _data;
     private final int _couponId;
     
@@ -26,7 +26,7 @@ class OneCouponsGpsData {
     /**
      * @return a deep copy of this OneCouponsGpsData
      */
-    public OneCouponsGpsData getDeepCopy(){
+    OneCouponsGpsData getDeepCopy(){
     	return new OneCouponsGpsData(_couponId, _data.getDeepCopy());
     }
     
@@ -59,7 +59,7 @@ class OneCouponsGpsData {
     /**
      * @param idx - the index as an int of the GpsDataPoint to delete
      */
-    public void deleteItem(int idx){
+    void deleteItem(int idx){
         _data.remove(idx);
     }
 }

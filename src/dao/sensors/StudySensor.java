@@ -4,7 +4,7 @@ package dao.sensors;
  * Contains all information found in one row of the studytosensor.csv
  * @author Maisha Jauernig
  */
-class StudySensor {
+public class StudySensor {
 	private SensorType _type;
 	private AbsSensorParameters _params;
 	private int _studyId;

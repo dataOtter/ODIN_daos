@@ -6,7 +6,7 @@ import orderedcollection.*;
  * A collection of StudySensor
  * @author Maisha Jauernig
  */
-class StudySensorsCollection {
+public class StudySensorsCollection {
     private final IMJ_OC<StudySensor> _sensors;
     
     /**
@@ -62,7 +62,7 @@ class StudySensorsCollection {
 		return _sensors.size();
 	}
 	
-	StudySensor getStudySensorAtIdx(int i) {
+	public StudySensor getStudySensorAtIdx(int i) {
 		return _sensors.get(i);
 	}
 }

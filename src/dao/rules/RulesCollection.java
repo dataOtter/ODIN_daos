@@ -46,8 +46,16 @@ public class RulesCollection {
 	/**
 	 * @return the IMJ_OC<OneRule> contained in this RulesCollection
 	 */
-	public IMJ_OC<OneRule> getRules(){
+	IMJ_OC<OneRule> getRules(){
 		return _allRules;
+	}
+	
+	/**
+	 * @param idx - index as int at which to get OneRule
+	 * @return the OneRule found at the given index
+	 */
+	public OneRule getRuleAtIdx(int idx) {
+		return _allRules.get(idx);
 	}
 	
 	/**

@@ -6,7 +6,7 @@ import dao.Constants;
  *
  * @author Maisha Jauernig
  */
-class GpsSensorParameters extends AbsSensorParameters {
+public class GpsSensorParameters extends AbsSensorParameters {
 	private final double _interval;
 	private final double _distance;
 	

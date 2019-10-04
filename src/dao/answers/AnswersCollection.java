@@ -87,8 +87,16 @@ public class AnswersCollection {
 	/**
 	 * @return the IMJ_OC<OneAnswer> contained in this AnswersCollection
 	 */
-	public IMJ_OC<OneAnswer> getAnswers(){
+	IMJ_OC<OneAnswer> getAnswers(){
 		return _allAnswers;
+	}
+	
+	/**
+	 * @param idx - index as int at which to get OneAnswer
+	 * @return the OneAnswer found at the given index
+	 */
+	public OneAnswer getAnswerAtIdx(int idx) {
+		return _allAnswers.get(idx);
 	}
 
 	/**

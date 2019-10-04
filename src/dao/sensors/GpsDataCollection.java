@@ -1,12 +1,13 @@
 package dao.sensors;
 
+import dao.answers.OneAnswer;
 import maps.*;
 
 /**
  * A map from coupon ID to OneCouponsGpsData
  * @author Maisha Jauernig
  */
-final class GpsDataCollection {
+public final class GpsDataCollection {
     IMJ_Map<Integer, OneCouponsGpsData> _couponToData;
     
     GpsDataCollection() {
@@ -39,4 +40,13 @@ final class GpsDataCollection {
     public int length(){
         return _couponToData.size();
     }
+	
+	/**
+	 * @param idx - index as int at which to get OneAnswer
+	 * @return the OneCouponsGpsData found at the given index
+	 */
+	public OneCouponsGpsData getCouponDataAtIdx(int idx) {
+		int cid = _couponToData.getKey(idx);
+		return _couponToData.get(cid);
+	}
 }

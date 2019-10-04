@@ -6,7 +6,7 @@ import java.util.Calendar;
  * Contains the information for one GPS data point
  * @author Maisha Jauernig
  */
-class GpsDataPoint {
+public class GpsDataPoint {
     private final Calendar _dateTime;
     private final GpsCoordinate _coord;
     
@@ -18,7 +18,7 @@ class GpsDataPoint {
     /**
      * @return the GPS coordinates of this GpsDataPoint as a GpsCoordinate
      */
-    public GpsCoordinate getGpsCoord() {
+    GpsCoordinate getGpsCoord() {
     	return _coord;
     }
     
