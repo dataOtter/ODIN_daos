@@ -4,11 +4,11 @@ package dao.sensors;
  * Contains a latitude and a longitude
  * @author Maisha Jauernig
  */
-class GpsCoordinate {
+public class GpsCoordinate {
     private double _lat;
     private double _lon;
     
-    GpsCoordinate(double lat, double lon){
+    public GpsCoordinate(double lat, double lon){
     	_lat = lat;
     	_lon = lon;
     }

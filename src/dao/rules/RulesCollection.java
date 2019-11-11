@@ -3,23 +3,22 @@ package dao.rules;
 import orderedcollection.*;
 
 /**
- * A collection of OneRule
+ * A collection of OneRule, extends MJ_OC<OneRule>
  * @author Maisha Jauernig
  */
-public class RulesCollection {
+public class RulesCollection extends MJ_OC<OneRule> {
 	private IMJ_OC<OneRule> _allRules;
 	
 	/**
-	 * @param rules
+	 * @param rules - IMJ_OC<OneRule> of rules to put into this RulesCollection
 	 */
 	RulesCollection(IMJ_OC<OneRule> rules) {
 		_allRules = rules.getDeepCopy();
 	}
 	
 	/**
-	 * @param ruleType - type of the rule, such as WhileAt
-	 * @return a RulesCollection subset of this RulesCollection that contains 
-	 * only rules of the given type
+	 * @param ruleType - type of the rule, found in Constants, as String
+	 * @return a RulesCollection subset that contains only rules of the given type
 	 */
 	public RulesCollection getRulesCollectionByType(String ruleType){
 		IMJ_OC<OneRule> newRules = new MJ_OC_Factory<OneRule>().create();
@@ -44,14 +43,7 @@ public class RulesCollection {
 	}
 	
 	/**
-	 * @return the IMJ_OC<OneRule> contained in this RulesCollection
-	 */
-	public IMJ_OC<OneRule> getRules(){
-		return _allRules;
-	}
-	
-	/**
-	 * @param rid - the rule ID for which to get the OneRule object
+	 * @param rid - the rule ID for which to get OneRule
 	 * @return the OneRule associated with the given rule ID
 	 */
 	public OneRule getRuleById(int rid) {
@@ -61,5 +53,60 @@ public class RulesCollection {
             }
         }
         return null;
+	}
+
+	@Override
+	public IMJ_OC<OneRule> getDeepCopy() {
+		return _allRules.getDeepCopy();
+	}
+
+	@Override
+	public void prepend(OneRule arg0) {
+		_allRules.prepend(arg0);
+	}
+
+	@Override
+	public void printAll() {
+		_allRules.printAll();
+	}
+
+	@Override
+	public boolean add(OneRule e) {
+		return _allRules.add(e);
+	}
+
+	@Override
+	public void add(int index, OneRule element) {
+		_allRules.add(index, element);
+	}
+
+	@Override
+	public void clear() {
+		_allRules.clear();
+	}
+
+	@Override
+	public OneRule get(int index) {
+		return _allRules.get(index);
+	}
+
+	@Override
+	public OneRule remove(int index) {
+		return _allRules.remove(index);
+	}
+
+	@Override
+	public OneRule set(int index, OneRule element) {
+		return _allRules.set(index, element);
+	}
+
+	@Override
+	public int size() {
+		return _allRules.size();
+	}
+
+	@Override
+	public <T> T[] toArray(T[] a) {
+		return _allRules.toArray(a);
 	}
 }

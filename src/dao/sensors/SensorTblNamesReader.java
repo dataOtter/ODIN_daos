@@ -35,16 +35,11 @@ public class SensorTblNamesReader {
             StudySensorsCollection studySensors = new SensorsReader(_path, _formatVersion)
             		.getStudySensorsCollection().getSensorsByStudyId(s.getStudyId());
             
-            for (int i = 0 ; i<studySensors.getNumSensors(); i++){
-                String tblName = studySensors.getStudySensorAtIdx(i).getSensorType().getSensorTblName();
+            for (int i = 0 ; i<studySensors.size(); i++){
+                String tblName = studySensors.get(i).getSensorType().getSensorTblName();
                 _sensorTblNames.add(tblName);
             } 
     	}
-    	/*if (Constants.TESTING_GPS_ONLY) {
-    		IMJ_OC<String> gps = new MJ_OC_Factory<String>().create();
-    		gps.append("sensor_GPS");
-    		return gps;
-    	}*/
         return _sensorTblNames.getDeepCopy();
     }
 }

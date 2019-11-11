@@ -6,19 +6,22 @@ import java.util.Calendar;
  * Contains the information for one GPS data point
  * @author Maisha Jauernig
  */
-class GpsDataPoint {
-    private final Calendar _dateTime;
+public class GpsDataPoint extends AbsDataPoint {
     private final GpsCoordinate _coord;
+    private final static int _sensorId = 12;
     
-    GpsDataPoint(Calendar dateTime, double lat, double lon) {
-        _dateTime = dateTime;
+    public GpsDataPoint(Calendar dateTime, double lat, double lon) {
+    	super(dateTime, _sensorId);
         _coord = new GpsCoordinate(lat, lon);
     }
-    
+
     /**
      * @return the GPS coordinates of this GpsDataPoint as a GpsCoordinate
      */
     public GpsCoordinate getGpsCoord() {
+    	if (this.equals(null)) {
+    		return null;
+    	}
     	return _coord;
     }
     
@@ -35,12 +38,4 @@ class GpsDataPoint {
     public Double getLon(){
         return _coord.getLon();
     } 
-    
-    /**
-     * @return the date and time associated with the recording of this GpsDataPoint as a Calendar object
-     */
-    public Calendar getDateTime(){
-        return _dateTime;
-    }
-    
 }

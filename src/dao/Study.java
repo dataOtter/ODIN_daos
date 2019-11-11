@@ -38,7 +38,3 @@ public class Study {
         return _id;
     }
 }
-
-
-
-

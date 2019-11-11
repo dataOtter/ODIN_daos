@@ -6,13 +6,13 @@ import orderedcollection.*;
  * A collection of StudySensor
  * @author Maisha Jauernig
  */
-class StudySensorsCollection {
+public class StudySensorsCollection extends MJ_OC<StudySensor> {
     private final IMJ_OC<StudySensor> _sensors;
     
     /**
      * @param sensors
      */
-    StudySensorsCollection(IMJ_OC<StudySensor> sensors) {
+    public StudySensorsCollection(IMJ_OC<StudySensor> sensors) {
     	_sensors = sensors;
     }
     
@@ -49,20 +49,64 @@ class StudySensorsCollection {
     	for (StudySensor sen: _sensors) {
     		int id = sen.getSensorId();
     		if (id == sensorid) {
-    			return sen.getParams().getInterval();
+    			return sen.getParams().getTimeInterval();
     		}
     	}
     	return null;
     }
-	
-	/**
-	 * @return the number of sensors in this StudySensorsCollection
-	 */
-	public int getNumSensors() {
+
+	@Override
+	public IMJ_OC<StudySensor> getDeepCopy() {
+		return _sensors.getDeepCopy();
+	}
+
+	@Override
+	public void prepend(StudySensor arg0) {
+		_sensors.prepend(arg0);
+	}
+
+	@Override
+	public void printAll() {
+		_sensors.printAll();
+	}
+
+	@Override
+	public boolean add(StudySensor e) {
+		return _sensors.add(e);
+	}
+
+	@Override
+	public void add(int index, StudySensor element) {
+		_sensors.add(index, element);
+	}
+
+	@Override
+	public void clear() {
+		_sensors.clear();
+	}
+
+	@Override
+	public StudySensor get(int index) {
+		return _sensors.get(index);
+	}
+
+	@Override
+	public StudySensor remove(int index) {
+		return _sensors.remove(index);
+	}
+
+	@Override
+	public StudySensor set(int index, StudySensor element) {
+		return _sensors.set(index, element);
+	}
+
+	@Override
+	public int size() {
 		return _sensors.size();
 	}
-	
-	StudySensor getStudySensorAtIdx(int i) {
-		return _sensors.get(i);
+
+	@Override
+	public <T> T[] toArray(T[] a) {
+		return _sensors.toArray(a);
 	}
 }

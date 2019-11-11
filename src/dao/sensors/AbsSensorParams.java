@@ -4,13 +4,13 @@ import dao.Constants;
 import maps.*;
 
 /**
- * 
+ *
  * @author Maisha Jauernig
  */
-abstract class AbsSensorParameters {
+public abstract class AbsSensorParams {
 	IMJ_Map<String, String> _paramNameToVal;
 	
-	AbsSensorParameters (String line){
+	AbsSensorParams (String line){
 		_paramNameToVal = new MJ_Map_Factory<String, String>().create();
 		String json = extractParameters(line);
 		String[] words = json.split(",");
@@ -20,27 +20,26 @@ abstract class AbsSensorParameters {
 		}
 	}
 	
-	/**
-	 * @return the sensor interval as a double
-	 */
-	public abstract double getInterval();
-	
-	static AbsSensorParameters parseFromString(String line) {
-		AbsSensorParameters answer;
+	public static AbsSensorParams parseFromString(String line) {
+		AbsSensorParams answer;
 		String[] row = line.split(",");
 		int sid = Integer.parseInt(row[Constants.STUDYTOSENSOR_SENSORID_IDX]);
 		switch (sid) {
-			case 12: answer = new GpsSensorParameters(line);
+			case Constants.SENSORID_GPS: answer = new GpsSensorParams(line);
 				break;
-			case 3: answer = new ProximityBTSensorParameters(line);
+			case Constants.SENSORID_BT: answer = new BTSensorParams(line);
 				break;
-			case 10: answer = new ProximityBeaconSensorParameters(line);
+			case Constants.SENSORID_BEACON: answer = new BeaconSensorParams(line);
 				break;
+			case Constants.SENSORID_ACTIVITY: answer = new ActivitySensorParams(line);
+			break;
 			default: answer = null;
 				break;
 		}
 		return answer;
 	}
+	
+	public abstract double getTimeInterval();
 	
 	private String extractParameters(String s) {
         int startIndex = s.indexOf("{") + 1;
