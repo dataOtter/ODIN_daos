@@ -6,7 +6,7 @@ import dao.Constants;
  * Contains all information found in one row of the sensortypes.csv
  * @author Maisha Jauernig
  */
-class SensorType {
+public class SensorType {
     private Integer _id;
     private String _name;
     private String _description;

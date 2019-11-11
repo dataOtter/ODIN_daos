@@ -6,7 +6,9 @@ import orderedcollection.*;
  * A collection of StudySensor
  * @author Maisha Jauernig
  */
+
 public class StudySensorsCollection extends MJ_OC<StudySensor> {
+
     private final IMJ_OC<StudySensor> _sensors;
     
     /**
@@ -108,5 +110,6 @@ public class StudySensorsCollection extends MJ_OC<StudySensor> {
 	@Override
 	public <T> T[] toArray(T[] a) {
 		return _sensors.toArray(a);
+
 	}
 }
